@@ -20,8 +20,8 @@ class Gatos {
     this.x = x ;
     this.y = y ;
     this.d = d ;
-    xSpeed = random(10, 40);
-    ySpeed = random(10, 40);
+    xSpeed = int(random(5, 40));
+    ySpeed = int(random(5, 30));
     gatito = loadImage ("gato2.png");
     nube = loadImage ("nubes.png");
     subtex = loadFont("Cutesy-Regular-20.vlw");
@@ -31,14 +31,14 @@ class Gatos {
     //play = miaw.loadFile ("cat.mp3");
   }
   void dibujar() {
-
-    this.estados.dibujar();
   }
 
   void speed() { //mover
     x += xSpeed;
     y += ySpeed;
   }
+
+
 
 
   void colision() {
@@ -56,6 +56,7 @@ class Gatos {
   void display() { //imagen que se reproduce
     gatito.resize(100, 100);
     image(gatito, x, y);
+    
   }
 
   void salvar() {
@@ -81,4 +82,16 @@ class Gatos {
     textSize(50);
     text("gatitos salvados "+gatitossave+"  de 20", 130, 550);
   }
+  
+    
+  void perder(){
+
+  
+}
+  
+  void ganar(){
+
+  
+}
+  
 }

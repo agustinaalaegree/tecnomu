@@ -5,6 +5,7 @@ class Pantalla {
   PFont subtex;
   Boton botoncomenzar, botoninicio, botoncreditos;
   Juego juego;
+  Estados estados;
 
 
   Pantalla(  Boton botoncomenzar, Boton botoninicio, Boton botoncreditos)
@@ -20,6 +21,7 @@ class Pantalla {
     texboton = loadFont("CutesRegular-48.vlw");
     subtex = loadFont("Cutesy-Regular-20.vlw");
     juego = new Juego();
+    estados = new Estados();
   }
 
   void dibujar(int ID) {
@@ -60,7 +62,7 @@ class Pantalla {
     background(0);
     image(escenario, 0, 0);
     this.juego.dibujar();
-
+    this.estados.dibujar();
     textFont (subtex);
     textSize(28);
     text ("Haga click soobre los gatitos para salvarlos", 148, 22);

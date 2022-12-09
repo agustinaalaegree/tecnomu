@@ -10,7 +10,6 @@ class Madre {
     this.botoninicio  = new Boton ( this, 20, 20, 80, 30, 27, 32, 40, "inicio");
     this.botoncreditos  = new Boton ( this, 470, 20, 110, 30, 27, 480, 40, "creditos");
     this.pantalla = new Pantalla(this.botoncomenzar, this.botoninicio, this.botoncreditos);
-   
   }
 
   void dibujar () {

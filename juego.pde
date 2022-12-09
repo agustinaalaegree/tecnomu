@@ -19,7 +19,6 @@ class Juego {
       misgatitos[i].salvar();
       misgatitos[i].score();
     }
-    estados.dibujar();
 
   }
 }

@@ -22,14 +22,16 @@ class Estados {
     int passedTime = millis() - savetime;
 
     if (passedTime > totaltime) {
-      perder();
       this.ganar  = false;
       this.perder  = true;
+      perder();
+      reiniciar();
     }
     if (gatitossave == 20) {
-      ganar ();
       this.ganar  = true;
       this.perder  = false;
+      ganar();
+      reiniciar();
     }
     // tiempo();
   }
@@ -37,8 +39,6 @@ class Estados {
 
   void ganar () {
     fill(132, 247, 117);
-
-
     strokeWeight(10);
     stroke(242, 253, 111, 40);
     rect(155, 230, 290, 150, 50);
@@ -47,11 +47,8 @@ class Estados {
 
     textSize(40);
     fill(0);
-    text ("Ganaste", width/3.2
-      , height/2+9);
-    text ("<", width/2.1
-      , height/2+50
-      );
+    text ("Ganaste", width/3.2, height/2+9);
+    text ("<", width/2.1, height/2+50);
   }
 
   void perder () {
@@ -65,10 +62,21 @@ class Estados {
     fill(0);
     text ("Perdiste", width/3.6, height/2+9);
     text (">", width/2.1, height/2+50);
+    reiniciar();
   }
 
-  //void tiempo () {
-  //textFont (texestado);
-  //text (frameCount++, width/2, 50);
-  //}
+  void reiniciar () {
+
+    int passedTime = millis() - savetime;
+    if (passedTime > totaltime ) {
+      reiniciar = true;
+      savetime = millis();
+      gatitossave = 0;
+      for (int i=0; i<misgatitos.length; i++) {
+        misgatitos[i] = new Gatos(random (100, 200), random(100, 200), 80);
+      }
+    }
+  }
+
+
 }
