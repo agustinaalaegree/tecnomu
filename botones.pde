@@ -1,12 +1,13 @@
 class Boton {
+  Madre madre;
   PFont texboton;
   int posx, posy, tamx, tamy, textam, texx, texy;
   String t;
   boolean detectar;
-  Madre madre;
+  color colorboton;
 
-  Boton (int posx, int posy, int tamx, int tamy, int textam, int texx, int texy, String t) {
-   
+  Boton (  Madre madre, int posx, int posy, int tamx, int tamy, int textam, int texx, int texy, String t) {
+    this.madre = madre;
     this.posx = posx;
     this.posy = posy;
     this.tamx = tamx;
@@ -33,10 +34,10 @@ class Boton {
 
 
   void botoncito () {
-    click();
     textFont (texboton);
     strokeWeight(10);
     stroke(242, 253, 111, 40);
+    fill(colorboton);
     rect(posx, posy, tamx, tamy, 10);
     textSize(textam);
     fill(0);
@@ -44,14 +45,26 @@ class Boton {
   }
 
 
-  void click() {
+  void pressed () {
+    if (mousePressed && this.detectar && this.madre.ID == 0 && this.t.equals("comenzar") ) {
+      this.madre.ID = 1;
+    } else  if (mousePressed && this.detectar && this.madre.ID == 1 && this.t.equals("inicio") ) {
+      this.madre.ID = 0;
+    }  else  if (mousePressed && this.detectar && this.madre.ID == 0 && this.t.equals("creditos") ) {
+      this.madre.ID = 2;
+    }  else  if (mousePressed && this.detectar && this.madre.ID == 2 && this.t.equals("inicio") ) {
+      this.madre.ID = 0;
+    } 
+  }
+
+  void moved() {
     if ((mouseX > posx )&&( mouseX < posx + tamx) &&
       (mouseY> posy )&& (mouseY < posy + tamy)) {
       detectar = true;
-      fill (252, 255, 160);
+      this.colorboton = color (252, 255, 160);
     } else {
       detectar = false;
-      fill (253, 123, 89);
+      this.colorboton = color (253, 123, 89);
     }
   }
 }

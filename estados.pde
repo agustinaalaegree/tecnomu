@@ -25,14 +25,13 @@ class Estados {
       perder();
       this.ganar  = false;
       this.perder  = true;
-     
     }
     if (gatitossave == 20) {
       ganar ();
       this.ganar  = true;
       this.perder  = false;
     }
-    tiempo();
+    // tiempo();
   }
 
 
@@ -68,8 +67,8 @@ class Estados {
     text (">", width/2.1, height/2+50);
   }
 
-  void tiempo () {
-    textFont (texestado);
-    text (frameCount++, width/2, height/2+9);
-  }
+  //void tiempo () {
+  //textFont (texestado);
+  //text (frameCount++, width/2, 50);
+  //}
 }

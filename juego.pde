@@ -1,9 +1,7 @@
 class Juego {
-  PImage fondo;
 
   Estados estados;
   Juego() {
-    fondo = loadImage ("pantalla.png");
     
     estados = new Estados();
 
@@ -13,7 +11,6 @@ class Juego {
   }
 
   void dibujar() {
-    image(fondo, 0, 0);
     for (int i = 0; i<misgatitos.length; i++) {
       //llamar a las funciones
       misgatitos[i].speed();

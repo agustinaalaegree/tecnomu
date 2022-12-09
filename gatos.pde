@@ -20,8 +20,8 @@ class Gatos {
     this.x = x ;
     this.y = y ;
     this.d = d ;
-    xSpeed = random(5, 40);
-    ySpeed = random(5, 30);
+    xSpeed = random(10, 40);
+    ySpeed = random(10, 40);
     gatito = loadImage ("gato2.png");
     nube = loadImage ("nubes.png");
     subtex = loadFont("Cutesy-Regular-20.vlw");
@@ -56,7 +56,6 @@ class Gatos {
   void display() { //imagen que se reproduce
     gatito.resize(100, 100);
     image(gatito, x, y);
-    
   }
 
   void salvar() {

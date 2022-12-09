@@ -7,37 +7,32 @@ class Pantalla {
   Juego juego;
 
 
-  Pantalla()
+  Pantalla(  Boton botoncomenzar, Boton botoninicio, Boton botoncreditos)
   {
+    this.botoncomenzar =  botoncomenzar;
+    this.botoninicio =  botoninicio;
+    this.botoncreditos =  botoncreditos;
+
     inicio = loadImage ("inicio.png");
     escenario = loadImage ("pantalla.png");
     nubes = loadImage ("nubes.png");
     textitulo = loadFont("CuteMeow-48.vlw");
     texboton = loadFont("CutesRegular-48.vlw");
     subtex = loadFont("Cutesy-Regular-20.vlw");
-    this.botoncomenzar = new Boton ( width/3+25, height-140, 160, 40, 35, width/3+40, height-115, "comenzar");
-    this.botoninicio  = new Boton ( 20, 20, 80, 30, 27, 32, 40, "inicio");
-    this.botoncreditos  = new Boton ( 470, 20, 110, 30, 27, 480, 40, "creditos");
     juego = new Juego();
   }
 
   void dibujar(int ID) {
-
     if (ID == 0) {
       this.inicio();
-      this.botoncomenzar.dibujar();
-      this.botoncreditos.dibujar();
     }
 
     if (ID == 1) {
       this.escenario();
-      this.juego.dibujar();
-      this.botoninicio.dibujar();
     }
 
     if (ID == 2) {
       this.creditos();
-      this.botoninicio.dibujar();
     }
   }
 
@@ -45,8 +40,11 @@ class Pantalla {
   void inicio() {
 
     image(inicio, 0, 0);
-    textFont (textitulo);
 
+    this.botoncomenzar.dibujar();
+    this.botoncreditos.dibujar();
+
+    textFont (textitulo);
     textSize(79);
     fill(0);
     text ("al meow", width/4, height/2.6);
@@ -61,17 +59,19 @@ class Pantalla {
   void escenario() {
     background(0);
     image(escenario, 0, 0);
-    image(nubes, 0, 0);
+    this.juego.dibujar();
 
     textFont (subtex);
     textSize(28);
     text ("Haga click soobre los gatitos para salvarlos", 148, 22);
-    text ("Tienes 10 segundos", 235, 44);
+    text ("Tienes 15 segundos", 235, 44);
+    this.botoninicio.dibujar();
   }
 
 
   void creditos() {
     image(inicio, 0, 0);
+    this.botoninicio.dibujar();
 
     textFont (textitulo);
     textSize(40);
@@ -88,18 +88,15 @@ class Pantalla {
     text ("profesor --- Tobias Albirosa", width/3, 350);
   }
 
-  void click() {
-    this.botoncomenzar.click();
+  void moved() {
+    this.botoncomenzar.moved();
+    this.botoninicio.moved();
+    this.botoncreditos.moved();
   }
 
-  void pressed (int ID) {
-    if (ID == 0) {
-      if (botoncomenzar.detectar) {
-        ID = 1;
-      }
-      if (botoncreditos.detectar) {
-        ID = 2 ;
-      }
-    }
+  void pressed () {
+    this.botoncomenzar.pressed();
+    this.botoninicio.pressed();
+    this.botoncreditos.pressed();
   }
 }

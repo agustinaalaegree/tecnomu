@@ -21,3 +21,6 @@ void draw() {
 void mousePressed() {
   madre.pressed();
 }
+void mouseMoved() {
+  madre.moved();
+}
