@@ -1,12 +1,9 @@
-int gatitossave = 0; // putaje gatitos salvados
-int highScore = 0; // cantidad de gattos que salvamos
-boolean ganar  = true; //cambiar pantalla
-int  savetime; //almacenar tiempo de juego
-int totaltime = 10000; //tiempo que dura el juego
-
-
 
 class Estados {
+  int gatitossave = 0; // putaje gatitos salvados
+  int highScore = 0; // cantidad de gattos que salvamos
+  int  savetime; //almacenar tiempo de juego
+  int totaltime = 12000; //tiempo que dura el juego
 
   Juego juego;
   PFont textitulo;
@@ -77,6 +74,4 @@ class Estados {
       }
     }
   }
-
-
 }

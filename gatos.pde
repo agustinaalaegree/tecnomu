@@ -1,8 +1,11 @@
-int maxgatitos = 20;
-Gatos[] misgatitos= new Gatos  [maxgatitos];
+Gatos[] misgatitos= new Gatos  [20];
 
 class Gatos {
-
+  int gatitossave = 0;
+  int highScore = 0;
+  boolean ganar  = true;
+  int  savetime;
+  int totaltime = 12000;
   Estados estados;
   PImage  nube;
   PFont texboton;
@@ -12,9 +15,6 @@ class Gatos {
   int d;
   float xSpeed;
   float ySpeed;
-
-  //Minim miaw;
-  //Audioplayer play;
 
   Gatos(float x, float y, int d) {
     this.x = x ;
@@ -27,8 +27,7 @@ class Gatos {
     subtex = loadFont("Cutesy-Regular-20.vlw");
     texboton = loadFont("CutesRegular-48.vlw");
     savetime = millis();
-    //miaw = new Minim (this);
-    //play = miaw.loadFile ("cat.mp3");
+
   }
   void dibujar() {
   }
@@ -56,7 +55,6 @@ class Gatos {
   void display() { //imagen que se reproduce
     gatito.resize(100, 100);
     image(gatito, x, y);
-    
   }
 
   void salvar() {
@@ -82,16 +80,6 @@ class Gatos {
     textSize(50);
     text("gatitos salvados "+gatitossave+"  de 20", 130, 550);
   }
-  
-    
-  void perder(){
 
-  
-}
-  
-  void ganar(){
 
-  
-}
-  
 }
